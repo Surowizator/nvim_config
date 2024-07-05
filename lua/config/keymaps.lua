@@ -12,15 +12,21 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<", "<gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "J", ":move '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":move '>-2<CR>gv=gv", opts)
+keymap("x", "J", ":move '>+1<CR>gv=gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv=gv", opts)
 
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+-- ThePrimagen remaps
+keymap("n", "J", "mzJ`z", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+keymap("x", "<leader>p", "\"_dP", opts)
+keymap("n", "<leader>y", "\"+y", opts)
+keymap("v", "<leader>y", "\"+y", opts)
+keymap("n", "<leader>Y", "\"+Y", opts)
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
