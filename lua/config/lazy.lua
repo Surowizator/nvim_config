@@ -26,6 +26,8 @@ require("lazy").setup({
     "numToStr/Comment.nvim", -- Easily comment stuff
     "JoosepAlviste/nvim-ts-context-commentstring",
     "lewis6991/gitsigns.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "nvim-tree/nvim-tree.lua",
 
     -- Completion
     "hrsh7th/nvim-cmp", -- The completion plugin
