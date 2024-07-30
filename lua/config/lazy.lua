@@ -1,4 +1,4 @@
--- Bootstrap lazy.nvim
+-- Bootstra/ lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -34,9 +34,9 @@ require("lazy").setup({
     "hrsh7th/cmp-buffer", -- buffer completions
     "hrsh7th/cmp-path", -- path completions
     "hrsh7th/cmp-cmdline", -- cmdline completions
-    "saadparwaiz1/cmp_luasnip", -- snippet completions
-    "L3MON4D3/LuaSnip", --snippet engine
-    "rafamadriz/friendly-snippets", -- a bunch of snippets to use
+    "honza/vim-snippets",
+    'SirVer/ultisnips',
+    'quangnguyen30192/cmp-nvim-ultisnips',
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
 
@@ -44,6 +44,20 @@ require("lazy").setup({
     "neovim/nvim-lspconfig", -- enable LSP
     "williamboman/mason.nvim", -- simple to use language server installer
     "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
+
+    {
+        "lervag/vimtex",
+        lazy = false,     -- we don't want to lazy load VimTeX
+        -- tag = "v2.15", -- uncomment to pin to a specific release
+        init = function()
+            -- VimTeX configuration goes here, e.g.
+            vim.g.vimtex_view_method = "zathura"
+            vim.g.tex_flavor = "latex"
+            vim.g.quickfix_mode = 0
+            vim.o.conceallevel = 1
+            vim.g.tex_conceal = "abdmg"
+        end
+    },
 
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
