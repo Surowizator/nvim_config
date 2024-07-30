@@ -3,7 +3,6 @@ local servers = {
     "lua_ls",
 	"pyright",
 	"jsonls",
-    "ltex",
 }
 
 local settings = {
