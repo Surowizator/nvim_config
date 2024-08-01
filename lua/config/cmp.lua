@@ -4,6 +4,12 @@ if not cmp_status_ok then
     return
 end
 
+local mappings_ok, cmp_ultisnips_mappings = pcall(require, "cmp_nvim_ultisnips.mappings")
+if not mappings_ok then
+    vim.notify("Couldn't load Ultisnips mappings")
+    return
+end
+
 local kind_icons = {
     Text = "󰊄",
     Method = "m",
@@ -52,7 +58,7 @@ cmp.setup {
             if cmp.visible() then
                 cmp.select_next_item()
             else
-                fallback()
+                cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
             end
         end, {
                 "i",
@@ -62,7 +68,7 @@ cmp.setup {
             if cmp.visible() then
                 cmp.select_prev_item()
             else
-                fallback()
+                cmp_ultisnips_mappings.jump_backwards(fallback)
             end
         end, {
                 "i",
