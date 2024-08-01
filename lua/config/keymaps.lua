@@ -33,3 +33,6 @@ keymap("v", "<leader>d", "\"_d", opts)
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+
+-- Spelling
+keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
