@@ -116,9 +116,9 @@ else:
 endsnippet
 
 snippet dm "Math" wA
-\[
+$$
 ${1:${VISUAL}}
-.\] $0
+$$ $0
 endsnippet
 
 snippet ali "Align" bA
@@ -457,6 +457,15 @@ snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rw
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
+context "math()"
+snippet '(?<!\\)(binom)' "binom" rwA
+\\`!p snip.rv = match.group(1)`{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet  '(?<!\\)(brace|brack)' "brace" rwA
+{ $1 \\`!p snip.rv = match.group(1)` $2 }$0
+endsnippet
 
 priority 100
 context "math()"
