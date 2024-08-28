@@ -21,7 +21,7 @@ require("lazy").setup({
     },
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "p00f/nvim-ts-rainbow",
+    "HiPhish/rainbow-delimiters.nvim",
     "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
     "numToStr/Comment.nvim", -- Easily comment stuff
     "JoosepAlviste/nvim-ts-context-commentstring",
