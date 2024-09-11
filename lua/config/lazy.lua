@@ -1,4 +1,4 @@
--- Bootstra/ lazy.nvim
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -45,11 +45,18 @@ require("lazy").setup({
     "williamboman/mason.nvim", -- simple to use language server installer
     "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
 
+    -- VimTeX
     {
         "lervag/vimtex",
         lazy = false,     -- we don't want to lazy load VimTeX
         -- tag = "v2.15", -- uncomment to pin to a specific release
     },
+
+    -- DAP
+    "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
+    "rcarriga/nvim-dap-ui",
+    "jay-babu/mason-nvim-dap.nvim",
 
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
