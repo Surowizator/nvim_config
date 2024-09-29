@@ -6,6 +6,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>t", ":terminal<CR>", opts)
 
 -- Indenting
 keymap("v", ">", ">gv", opts)
