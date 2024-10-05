@@ -265,7 +265,7 @@ snippet conj "conjugate" iA
 endsnippet
 
 snippet sum "sum" w
-\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+\sum_{${1:n=1}}^{${2:\infty}} ${3:a_n z^n}
 endsnippet
 
 snippet taylor "taylor" w
@@ -325,6 +325,10 @@ snippet rij "mrij" i
 (${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
 endsnippet
 
+snippet fam "family"
+\\{${1:x}_${2:n}\\}_{${3:$2}\\in${4:\\N}}$0
+endsnippet
+
 snippet <= "leq" iA
 \le 
 endsnippet
@@ -335,12 +339,12 @@ endsnippet
 
 context "math()"
 snippet EE "exists" iA
-\exists 
+\exists_{$1} \ $0
 endsnippet
 
 context "math()"
 snippet AA "forall" iA
-\forall 
+\forall_{$1} \ $0 
 endsnippet
 
 context "math()"
@@ -496,7 +500,7 @@ endsnippet
 
 context "math()"
 snippet \\\ "setminus" iA
-\setminus
+\setminus 
 endsnippet
 
 snippet >> ">>" iA
@@ -549,11 +553,11 @@ snippet UU "cup" iA
 endsnippet
 
 snippet uuu "bigcup" iA
-\bigcup_{${1:i \in ${2: I}}} $0
+\bigcup_{${1:i \in ${2: I}}}^{$3} $0
 endsnippet
 
 snippet nnn "bigcap" iA
-\bigcap_{${1:i \in ${2: I}}} $0
+\bigcap_{${1:i \in ${2: I}}}^{$3} $0
 endsnippet
 
 snippet OO "emptyset" iA

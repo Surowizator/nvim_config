@@ -84,7 +84,6 @@ cmp.setup {
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[LUA]",
                 ultisnips = "[Snippet]",
-                buffer = "[Buffer]",
                 path = "[Path]",
             })[entry.source.name]
             return vim_item
@@ -94,7 +93,6 @@ cmp.setup {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "ultisnips" },
-        { name = "buffer" },
         { name = "path" },
     },
     confirm_opts = {
