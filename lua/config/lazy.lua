@@ -28,6 +28,11 @@ require("lazy").setup({
     "lewis6991/gitsigns.nvim",
     "nvim-tree/nvim-web-devicons",
     "nvim-tree/nvim-tree.lua",
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
 
     -- Completion
     "hrsh7th/nvim-cmp", -- The completion plugin
