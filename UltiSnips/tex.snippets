@@ -270,8 +270,18 @@ snippet prod "product" w
 endsnippet
 
 context "math()"
-snippet part "d/dx" w
-\frac{\partial ${1:V}}{\partial ${2:x}} $0
+snippet dv "\dv{}{}" wiA
+\dv{$1}{$2} $0
+endsnippet
+
+context "math()"
+snippet pd "\pd{}{}" wiA
+\pd{$1}{$2} $0
+endsnippet
+
+context "math()"
+snippet DD "\D" iA
+\D
 endsnippet
 
 context "math()"
@@ -461,7 +471,7 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(alpha|beta|sigma|omega|Omega|Sigma|gamma|phi|epsilon|mu|lambda|delta|Delta|tau|xi)' "ln" rwA
+snippet '(?<!\\)(alpha|beta|sigma|omega|Omega|Sigma|gamma|phi|Phi|epsilon|mu|lambda|delta|Delta|tau|xi|theta|eta|rho|nu)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -560,7 +570,7 @@ snippet || "mid" iA
 endsnippet
 
 context "math()"
-snippet cc "subset" Ai
+snippet cc "subset" Aiw
 \subseteq
 endsnippet
 
