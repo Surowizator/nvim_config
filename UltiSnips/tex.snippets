@@ -475,6 +475,18 @@ snippet '(?<!\\)(alpha|beta|sigma|omega|Omega|Sigma|gamma|phi|Phi|epsilon|mu|lam
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
+priority 100
+context "math()"
+snippet '(?<!\\)(alpha|beta|gamma|delta||epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|xi|omicron|pi|rho|sigma|tau|upsilon|phi|chi|psi|omega)' "ln" rwA
+\\`!p snip.rv = match.group(1)`
+endsnippet
+
+priority 100
+context "math()"
+snippet '(?<!\\)(Alpha|Beta|Gamma|Delta||Epsilon|Zeta|Eta|Theta|Iota|Kappa|Lambda|Mu|Nu|Xi|Omicron|Pi|Rho|Sigma|Tau|Upsilon|Phi|Chi|Psi|Omega)' "ln" rwA
+\\`!p snip.rv = match.group(1)`
+endsnippet
+
 priority 300
 context "math()"
 snippet dint "integral" wA
@@ -483,15 +495,17 @@ endsnippet
 
 priority 200
 context "math()"
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
+snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|int)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
+priority 200
 context "math()"
 snippet 'veps' "varepsilon" rwA
 \\varepsilon
 endsnippet
 
+priority 200
 context "math()"
 snippet 'vphi' "varphi" rwA
 \\varphi
