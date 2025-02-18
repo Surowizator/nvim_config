@@ -66,16 +66,6 @@ snippet item "Itemize" bA
 \end{itemize}
 endsnippet
 
-snippet desc "Description" b
-\begin{description}
-	\item[$1] $0
-\end{description}
-endsnippet
-
-snippet pac "Package" b
-\usepackage[${1:options}]{${2:package}}$0
-endsnippet
-
 context "math()"
 snippet => "implies" Ai
 \implies
@@ -109,7 +99,6 @@ snippet ali "Align" bA
 	${1:${VISUAL}}
 .\end{align*}
 endsnippet
-
 
 context "math()"
 snippet // "Fraction" iA
@@ -152,43 +141,6 @@ snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
 `!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
 endsnippet
 
-
-snippet sympy "sympyblock " w
-sympy $1 sympy$0
-endsnippet
-
-priority 10000
-snippet 'sympy(.*)sympy' "sympy" wr
-`!p
-from sympy import *
-x, y, z, t = symbols('x y z t')
-k, m, n = symbols('k m n', integer=True)
-f, g, h = symbols('f g h', cls=Function)
-init_printing()
-snip.rv = eval('latex(' + match.group(1).replace('\\', '').replace('^', '**').replace('{', '(').replace('}', ')') + ')')
-`
-endsnippet
-
-priority 1000
-snippet math "mathematicablock" w
-math $1 math$0
-endsnippet
-
-priority 10000
-snippet 'math(.*)math' "math" wr
-`!p
-import subprocess
-code = match.group(1)
-code = 'ToString[' + code + ', TeXForm]'
-snip.rv = subprocess.check_output(['wolframscript', '-code', code])
-`
-endsnippet
-
-context "math()"
-snippet == "equals" iA
-&= $1 \\\\ $0
-endsnippet
-
 context "math()"
 snippet != "equals" iA
 \neq 
@@ -225,7 +177,7 @@ snippet plr "left( right)" iA
 endsnippet
 
 context "math()"
-snippet blr{ "left\{ right\}" iA
+snippet blr "left\{ right\}" iA
 \left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
@@ -247,11 +199,6 @@ endsnippet
 context "math()"
 snippet sum "sum" w
 \sum_{${1:n=1}}^{${2:\infty}} $0
-endsnippet
-
-context "math()"
-snippet taylor "taylor" w
-\sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
 endsnippet
 
 context "math()"
@@ -281,7 +228,7 @@ endsnippet
 
 context "math()"
 snippet DD "\D" iA
-\D
+\D{$1} $0
 endsnippet
 
 context "math()"
@@ -321,12 +268,12 @@ endsnippet
 
 context "math()"
 snippet rij "mrij" i
-(${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
+\left(${1:x}_${2:n}\right)_{${3:$2} ${4:\in\N}} $0
 endsnippet
 
 context "math()"
 snippet fam "family"
-\\{${1:x}_${2:n}\\}_{${3:$2}\\in${4:\\N}}$0
+\left\\{${1:x}_${2:n}\right\\}_{${3:$2} ${4:\in\N}} $0
 endsnippet
 
 context "math()"
@@ -359,7 +306,6 @@ snippet ynn "yn" iA
 y_{n}
 endsnippet
 
-
 context "math()"
 snippet xii "xi" iA
 x_{i}
@@ -388,33 +334,6 @@ endsnippet
 context "math()"
 snippet xmm "x" iA
 x_{m}
-endsnippet
-
-context "math()"
-snippet R0+ "R0+" iA
-\\R_0^+
-endsnippet
-
-snippet plot "Plot" w
-\begin{figure}[$1]
-	\centering
-	\begin{tikzpicture}
-		\begin{axis}[
-			xmin= ${2:-10}, xmax= ${3:10},
-			ymin= ${4:-10}, ymax = ${5:10},
-			axis lines = middle,
-		]
-			\addplot[domain=$2:$3, samples=${6:100}]{$7};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{$8}
-	\label{${9:$8}}
-\end{figure}
-endsnippet
-
-snippet nn "Tikz node" w
-\node[$5] (${1/[^0-9a-zA-Z]//g}${2}) ${3:at (${4:0,0}) }{$${1}$};
-$0
 endsnippet
 
 context "math()"
@@ -465,7 +384,7 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
+snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|exp|star|perp)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -496,13 +415,13 @@ endsnippet
 priority 200
 context "math()"
 snippet 'veps' "varepsilon" rwA
-\\varepsilon
+\varepsilon
 endsnippet
 
 priority 200
 context "math()"
 snippet 'vphi' "varphi" rwA
-\\varphi
+\varphi
 endsnippet
 
 context "math()"
@@ -614,12 +533,12 @@ endsnippet
 
 context "math()"
 snippet uuu "bigcup" iA
-\bigcup_{${1:i \in ${2: I}}}^{$3} $0
+\bigcup_{$1}^{$2} $0
 endsnippet
 
 context "math()"
 snippet nnn "bigcap" iA
-\bigcap_{${1:i \in ${2: I}}}^{$3} $0
+\bigcap_{$1}^{$2} $0
 endsnippet
 
 context "math()"
@@ -715,22 +634,17 @@ endsnippet
 
 priority 10
 context "math()"
-snippet "tilde" "tilde" riA
+snippet "tld" "tilde" riA
 \tilde{$1}$0
 endsnippet
 
 priority 100
 context "math()"
-snippet "([a-zA-Z])tilde" "tilde" riA
+snippet "([a-zA-Z])tld" "tilde" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
-context "math()"
-snippet ohm "Omega" i
-\Omega
-endsnippet
-
-snippet verb "verbatim" wA
+snippet vb "verbatim" wA
 \verb|${1}|`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ', '(', ')']:
 	snip.rv = ' '

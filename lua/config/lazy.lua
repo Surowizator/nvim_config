@@ -39,7 +39,6 @@ require("lazy").setup({
     "hrsh7th/cmp-buffer", -- buffer completions
     "hrsh7th/cmp-path", -- path completions
     "hrsh7th/cmp-cmdline", -- cmdline completions
-    "honza/vim-snippets",
     'SirVer/ultisnips',
     'quangnguyen30192/cmp-nvim-ultisnips',
     "hrsh7th/cmp-nvim-lsp",
