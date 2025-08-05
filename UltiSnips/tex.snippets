@@ -153,7 +153,7 @@ endsnippet
 
 context "math()"
 snippet floor "floor" iA
-\left\lfloor $1 \right\rfloor$0
+\left\lfloor $1 \right\rfloor $0
 endsnippet
 
 context "math()"
@@ -394,7 +394,7 @@ snippet '(?<!\\)(alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
-priority 100
+priority 101
 context "math()"
 snippet '(?<!\\)(Alpha|Beta|Gamma|Delta|Epsilon|Zeta|Eta|Theta|Iota|Kappa|Lambda|Mu|Nu|Xi|Omicron|Pi|Rho|Sigma|Tau|Upsilon|Phi|Chi|Psi|Omega)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
@@ -425,13 +425,8 @@ snippet 'vphi' "varphi" rwA
 endsnippet
 
 context "math()"
-snippet '(?<!\\)(binom)' "binom" rwA
+snippet '(?<!\\)(binom|cstir|bstir)' "binom" rwA
 \\`!p snip.rv = match.group(1)`{$1}{$2}$0
-endsnippet
-
-context "math()"
-snippet  '(?<!\\)(brace|brack)' "brace" rwA
-{ $1 \\`!p snip.rv = match.group(1)` $2 }$0
 endsnippet
 
 priority 100
@@ -498,7 +493,7 @@ endsnippet
 
 context "math()"
 snippet cc "subset" Aiw
-\subseteq
+\subseteq 
 endsnippet
 
 context "math()"

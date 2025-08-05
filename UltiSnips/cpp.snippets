@@ -1,4 +1,4 @@
-snippet template "Satori template" b
+snippet satori "Satori template" b
 #include <iostream>
 using namespace std;
 
@@ -12,6 +12,28 @@ int main() {
 	while (z--) {
 		$0
 	}
+
+	return 0;
+}
+endsnippet
+
+snippet contest "Contest template" b
+#include <bits/stdc++.h>
+using namespace std;
+
+#define all(a) (a).begin(), (a).end()
+
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<long long> vll;
+typedef pair<int,int> pii;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	$0
 
 	return 0;
 }

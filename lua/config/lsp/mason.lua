@@ -4,6 +4,7 @@ local servers = {
 	"pyright",
 	"jsonls",
     "eslint",
+    "texlab",
 }
 
 require("mason-lspconfig").setup({
