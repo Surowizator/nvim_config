@@ -14,8 +14,16 @@ endglobal
 
 snippet template "Basic template" b
 \documentclass[a4paper]{article}
-\input{~/.config/tex/preamble.tex}
-\author{Maciej Mikołajczak}
+\usepackage{preamble}
+
+\begin{document}
+	$0
+\end{document}
+endsnippet
+
+snippet prestemplate "Basic presentation template" b
+\documentclass[10pt,polish]{beamer}
+\usepackage{pres_preamble}
 
 \begin{document}
 	$0
