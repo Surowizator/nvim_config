@@ -20,7 +20,12 @@ require("lazy").setup({
         opts = {},
     },
     "nvim-telescope/telescope.nvim",
-    "nvim-treesitter/nvim-treesitter",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false,
+        build = ":TSUpdate",
+    },
     "HiPhish/rainbow-delimiters.nvim",
     "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
     "numToStr/Comment.nvim", -- Easily comment stuff
