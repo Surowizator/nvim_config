@@ -26,6 +26,7 @@ require("lazy").setup({
     },
     "HiPhish/rainbow-delimiters.nvim", -- Colourful brackets
     "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+    "numToStr/Comment.nvim", -- Easily comment stuff
     "lewis6991/gitsigns.nvim", -- Git integration
     "nvim-tree/nvim-web-devicons", -- Nice icons
     "nvim-tree/nvim-tree.lua", -- Directory tree
