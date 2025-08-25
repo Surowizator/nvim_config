@@ -49,7 +49,13 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR><c-w>h", opts)
 
 -- Harpoon
--- in harpoon.lua because harpoon cannot be required twice
+local harpoon = require("harpoon")
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
 
 -- LSP
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")

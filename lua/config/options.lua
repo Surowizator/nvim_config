@@ -1,27 +1,38 @@
-vim.opt.cursorline = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.termguicolors = true
-vim.opt.ignorecase = true
-vim.opt.cmdheight = 2
-vim.opt.conceallevel = 0
-vim.opt.fileencoding = "utf-8"
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.smartcase = true
-vim.opt.scrolloff = 8
-vim.opt.guifont = "monospace:h17"
+local options = {
+    undofile = true, -- undos are saved to a file
+    undodir = vim.env.HOME.."/.cache/nvim/undodir", -- this one
 
--- Tabs
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
+    number = true, -- number lines
+    relativenumber = true, -- relative numbers
 
--- Spelling
-vim.opt.spell = true
-vim.opt.spelllang = "pl,en_gb"
+    -- Indentation
+    smarttab = true,
+    cindent = true, -- auto indent
+    expandtab = true,
+    shiftwidth = 4, -- number of spaces for indentation
+    tabstop = 4, -- visual width of a tab
 
--- Permanent undo
-vim.opt.undofile = true
-vim.opt.undodir = vim.env.HOME.."/.cache/nvim/undodir"
+    -- Folding using Treesitter
+    foldmethod = "expr",
+    foldlevel = 99, --disable folding, lower #s enable
+    foldexpr = "v:lua.vim.treesitter.foldexpr()",
+
+    termguicolors = true,
+
+    ignorecase = true, --ignore case while searching
+    smartcase = true, --but do not ignore if caps are used
+    hlsearch = false, -- stop highlighting search after searching
+
+    conceallevel = 2, --markdown and tex conceal
+    cursorline = true, -- highlight current line
+    scrolloff = 8, -- min lines below/above cursor
+    cmdheight = 2, -- bigger cmdline
+
+    -- Spelling
+    spell = true,
+    spelllang = "pl,en_gb",
+}
+
+for k, v in pairs(options) do
+    vim.opt[k] = v
+end

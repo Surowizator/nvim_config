@@ -72,3 +72,16 @@ require("lazy").setup({
     checker = { enabled = true },
 
 })
+
+require("Comment").setup()
+require("harpoon").setup()
+
+require("plugins.autopairs")
+require("plugins.cmp")
+require("plugins.debug")
+require("plugins.gitsigns")
+require("plugins.nvimtree")
+require("plugins.telescope")
+require("plugins.treesitter")
+require("plugins.ultisnips")
+require("plugins.vimtex")
