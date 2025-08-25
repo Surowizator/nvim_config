@@ -49,13 +49,3 @@ vim.diagnostic.config({
       prefix = "",
     },
 })
-
-vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-vim.keymap.set("n", "K", function() vim.lsp.buf.hover({border = "rounded"}) end)
-vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.signature_help({border = "rounded"}) end)
-vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
-vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')

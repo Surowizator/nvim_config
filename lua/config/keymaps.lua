@@ -1,42 +1,43 @@
 local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
 
-keymap("", "<Space>", "<Nop>", opts)
+vim.keymap.set("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>t", ":terminal<CR>", opts)
+-- Opening side-buffers
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+vim.keymap.set("n", "<leader>t", ":terminal<CR>", opts)
 
 -- Indenting
-keymap("v", ">", ">gv", opts)
-keymap("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
+vim.keymap.set("v", "<", "<gv", opts)
 
 -- Move text up and down
-keymap("v", "J", ":move '>+1<CR>gv=gv", opts)
-keymap("v", "K", ":move '>-2<CR>gv=gv", opts)
-keymap("x", "J", ":move '>+1<CR>gv=gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv=gv", opts)
+vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "K", ":move '>-2<CR>gv=gv", opts)
+vim.keymap.set("x", "J", ":move '>+1<CR>gv=gv", opts)
+vim.keymap.set("x", "K", ":move '<-2<CR>gv=gv", opts)
 
 -- ThePrimagen remaps
-keymap("n", "J", "mzJ`z", opts)
-keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "<C-u>", "<C-u>zz", opts)
-keymap("n", "n", "nzzzv", opts)
-keymap("n", "N", "Nzzzv", opts)
-keymap("x", "<leader>p", "\"_dP", opts)
-keymap("n", "<leader>y", "\"+y", opts)
-keymap("v", "<leader>y", "\"+y", opts)
-keymap("n", "<leader>Y", "\"+Y", opts)
-keymap("n", "<leader>d", "\"_d", opts)
-keymap("v", "<leader>d", "\"_d", opts)
+vim.keymap.set("n", "J", "mzJ`z", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "n", "nzzzv", opts)
+vim.keymap.set("n", "N", "Nzzzv", opts)
+vim.keymap.set("x", "<leader>p", "\"_dP", opts)
+vim.keymap.set("n", "<leader>y", "\"+y", opts)
+vim.keymap.set("v", "<leader>y", "\"+y", opts)
+vim.keymap.set("n", "<leader>Y", "\"+Y", opts)
+vim.keymap.set("n", "<leader>d", "\"_d", opts)
+vim.keymap.set("v", "<leader>d", "\"_d", opts)
 
 -- Telescope
-keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+-- more in Telescope's settings
+vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+vim.keymap.set("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Spelling
-keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
+vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
 
 -- Inkscape
 vim.cmd([[
@@ -45,4 +46,18 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 ]])
 
 -- Undotree
-keymap("n", "<leader>u", ":UndotreeToggle<CR><c-w>h", opts)
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR><c-w>h", opts)
+
+-- Harpoon
+-- in harpoon.lua because harpoon cannot be required twice
+
+-- LSP
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+vim.keymap.set("n", "K", function() vim.lsp.buf.hover({border = "rounded"}) end)
+vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.signature_help({border = "rounded"}) end)
+vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
+vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')
