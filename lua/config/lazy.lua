@@ -11,30 +11,26 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
     "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
-    'ThePrimeagen/vim-be-good',
-    -- Colorschemes
     {
-        "folke/tokyonight.nvim",
+        "folke/tokyonight.nvim", -- Colorschemes
         lazy = false,
         priority = 1000,
         opts = {},
     },
-    "nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope.nvim", -- Fuzzy finder
     {
-        "nvim-treesitter/nvim-treesitter",
+        "nvim-treesitter/nvim-treesitter", -- HIghlights
         branch = "main",
         lazy = false,
         build = ":TSUpdate",
     },
-    "HiPhish/rainbow-delimiters.nvim",
+    "HiPhish/rainbow-delimiters.nvim", -- Colourful brackets
     "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-    "numToStr/Comment.nvim", -- Easily comment stuff
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    "lewis6991/gitsigns.nvim",
-    "nvim-tree/nvim-web-devicons",
-    "nvim-tree/nvim-tree.lua",
+    "lewis6991/gitsigns.nvim", -- Git integration
+    "nvim-tree/nvim-web-devicons", -- Nice icons
+    "nvim-tree/nvim-tree.lua", -- Directory tree
     {
-        "ThePrimeagen/harpoon",
+        "ThePrimeagen/harpoon", -- Easy jumping through files
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" }
     },
@@ -44,7 +40,8 @@ require("lazy").setup({
     "hrsh7th/cmp-buffer", -- buffer completions
     "hrsh7th/cmp-path", -- path completions
     "hrsh7th/cmp-cmdline", -- cmdline completions
-    'SirVer/ultisnips',
+    'SirVer/ultisnips', -- Snippets engine
+    -- Some bridges
     'quangnguyen30192/cmp-nvim-ultisnips',
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
@@ -52,13 +49,11 @@ require("lazy").setup({
     -- LSP
     "neovim/nvim-lspconfig", -- enable LSP
     "williamboman/mason.nvim", -- simple to use language server installer
-    "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
+    "williamboman/mason-lspconfig.nvim", -- and it's bridge to LSP
 
-    -- VimTeX
     {
-        "lervag/vimtex",
+        "lervag/vimtex", -- TeX plugin
         lazy = false,     -- we don't want to lazy load VimTeX
-        -- tag = "v2.15", -- uncomment to pin to a specific release
     },
 
     -- DAP
@@ -67,11 +62,12 @@ require("lazy").setup({
     "rcarriga/nvim-dap-ui",
     "jay-babu/mason-nvim-dap.nvim",
 
+    "mbbill/undotree"; -- Tree of changes
+
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
     -- automatically check for plugin updates
     checker = { enabled = true },
 
-    "mbbill/undotree";
 })
