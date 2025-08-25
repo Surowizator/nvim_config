@@ -1,10 +1,4 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
-    vim.notify("Couldn't load Gitsigns")
-    return
-end
-
-gitsigns.setup {
+require("gitsigns").setup {
     signs = {
         add          = { text = '┃' },
         change       = { text = '┃' },

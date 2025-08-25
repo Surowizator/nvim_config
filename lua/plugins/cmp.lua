@@ -1,14 +1,5 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-    vim.notify("Couldn't load autocompletion")
-    return
-end
-
-local mappings_ok, cmp_ultisnips_mappings = pcall(require, "cmp_nvim_ultisnips.mappings")
-if not mappings_ok then
-    vim.notify("Couldn't load Ultisnips mappings")
-    return
-end
+local cmp = require("cmp")
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
 local kind_icons = {
     Text = "󰊄",

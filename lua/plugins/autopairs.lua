@@ -1,23 +1,13 @@
-local status_ok, npairs = pcall(require, "nvim-autopairs")
-if not status_ok then
-    vim.notify("Couldn't load autopairs")
-    return
-end
-
-npairs.setup {
-    check_ts = true,
-    ts_config = {
-        lua = { "string", "source" },
-        javascript = { "string", "template_string" },
-        java = false,
-    },
-    disable_filetype = { "TelescopePrompt", "spectre_panel" },
+require("nvim-autopairs").setup {
     fast_wrap = {
         map = "<M-e>",
-        chars = { "{", "[", "(", '"', "'" },
+        chars = { "{", "[", "(", '"', "'", "<"},
         pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
         offset = 0, -- Offset from pattern match
-        end_key = "$",
+        end_key = '$',
+        before_key = 'h',
+        after_key = 'l',
+        cursor_pos_before = true,
         keys = "qwertyuiopzxcvbnmasdfghjkl",
         check_comma = true,
         highlight = "PmenuSel",
@@ -26,9 +16,5 @@ npairs.setup {
 }
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local status_ok, cmp = pcall(require, "cmp")
-if not status_ok then
-    vim.notify("Couldn't load cmp")
-    return
-end
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
+local cmp = require("cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
