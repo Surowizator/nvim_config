@@ -21,3 +21,7 @@ vim.opt.smartindent = true
 -- Spelling
 vim.opt.spell = true
 vim.opt.spelllang = "pl,en_gb"
+
+-- Permanent undo
+vim.opt.undofile = true
+vim.opt.undodir = vim.env.HOME.."/.cache/nvim/undodir"
