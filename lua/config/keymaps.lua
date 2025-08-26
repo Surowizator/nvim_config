@@ -32,7 +32,6 @@ vim.keymap.set("n", "<leader>d", "\"_d", opts)
 vim.keymap.set("v", "<leader>d", "\"_d", opts)
 
 -- Telescope
--- more in Telescope's settings
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 vim.keymap.set("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
@@ -49,13 +48,7 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR><c-w>h", opts)
 
 -- Harpoon
-local harpoon = require("harpoon")
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set("n", "<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+-- available in plugins.harpoon to enable lazy loading
 
 -- LSP
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
@@ -67,20 +60,3 @@ vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
 vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')
-
--- DAP
-local dap = require("dap")
-vim.keymap.set('n', '<F5>', function() dap.continue() end)
-vim.keymap.set('n', '<F6>', function() dap.terminate() end)
-vim.keymap.set('n', '<F10>', function() dap.step_over() end)
-vim.keymap.set('n', '<F11>', function() dap.step_into() end)
-vim.keymap.set('n', '<F12>', function() dap.step_out() end)
-vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
-vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint() end)
-vim.keymap.set('n', '<Leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end)
-vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
-vim.keymap.set({'n', 'v'}, '<Leader>dh', function() require('dap.ui.widgets').hover() end)
-vim.keymap.set({'n', 'v'}, '<Leader>dp', function() require('dap.ui.widgets').preview() end)
-vim.keymap.set('n', '<Leader>df', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.frames) end)
-vim.keymap.set('n', '<Leader>ds', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes) end)

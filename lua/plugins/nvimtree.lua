@@ -1,4 +1,5 @@
-require("nvim-tree").setup {
+--require("nvim-tree").setup
+return {
     disable_netrw = true,
     hijack_netrw = true,
     open_on_tab = false,
