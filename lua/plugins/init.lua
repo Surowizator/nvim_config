@@ -108,6 +108,11 @@ require("lazy").setup({
             "numToStr/FTerm.nvim", -- Floating terminal, keymap calls require
             opts = require("plugins.fterm"),
         },
+        {
+            "MeanderingProgrammer/render-markdown.nvim",
+            ft = "markdown",
+            opts = require("plugins.markdown"),
+        }
     },
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.

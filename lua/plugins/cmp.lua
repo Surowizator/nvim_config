@@ -80,6 +80,7 @@ return function()
             { name = "nvim_lua" },
             { name = "ultisnips" },
             { name = "path" },
+            { name = "render-markdown" },
         },
         confirm_opts = {
             behavior = cmp.ConfirmBehavior.Replace,
