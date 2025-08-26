@@ -100,13 +100,15 @@ require("lazy").setup({
         "dstein64/vim-startuptime", -- Check startup time
         cmd = "StartupTime",
     },
+    {
+        "numToStr/FTerm.nvim", -- Floating terminal
+        lazy = true, -- keymap calls require
+        opts = require("plugins.fterm"),
+    },
 
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
     -- automatically check for plugin updates
     checker = { enabled = true },
-    defaults = {
-        lazy = true,
-    },
 })

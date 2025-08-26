@@ -4,9 +4,11 @@ vim.keymap.set("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Opening side-buffers
+-- Nvim Tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-vim.keymap.set("n", "<leader>t", ":terminal<CR>", opts)
+
+-- FTerm
+vim.keymap.set("n", "<leader>t", "<cmd>lua require('FTerm').open()<CR>", opts)
 
 -- Indenting
 vim.keymap.set("v", ">", ">gv", opts)
