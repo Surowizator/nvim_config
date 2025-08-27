@@ -27,12 +27,15 @@ local options = {
     cursorline = true, -- highlight current line
     scrolloff = 8, -- min lines below/above cursor
     cmdheight = 2, -- bigger cmdline
-
-    -- Spelling
-    spell = true,
-    spelllang = "pl,en_gb",
 }
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+-- slower loading options
+vim.defer_fn(function ()
+    -- Spelling
+    vim.opt.spell = true
+    vim.opt.spelllang = "pl,en_gb"
+end, 100)
