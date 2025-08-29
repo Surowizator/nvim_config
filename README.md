@@ -1,8 +1,10 @@
-My personal Neovim configuration, requires Neovim 0.11.3 (for `lspconfig` to work properly).
+My personal Neovim configuration.
 
-Prerequisites:
+Requirements:
+- `git`
 - `curl`
+- `xclip`
 - `node.js` (for installations by Mason and Treesitter)
-- `tree-sitter-cli`
-- `ripgrep`
+- `tree-sitter-cli` (for installing language parsers)
+- `ripgrep` (for live-grep in Telescope)
 
