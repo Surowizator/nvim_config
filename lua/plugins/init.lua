@@ -109,8 +109,7 @@ require("lazy").setup({
             opts = require("plugins.fterm"),
         },
         {
-            "MeanderingProgrammer/render-markdown.nvim",
-            ft = "markdown",
+            "MeanderingProgrammer/render-markdown.nvim", -- loaded in an autocommand with delay
             opts = require("plugins.markdown"),
         },
         {
