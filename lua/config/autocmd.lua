@@ -1,11 +1,11 @@
 -- syntax highlighting with Treesitter
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = "*.*", -- disable for special filetypes, eg. Lazy, NvimTree
+    pattern = "*",
     callback = function()
         if vim.bo.filetype=="tex" then -- VimTeX takes over
             return
         end
-        vim.treesitter.start()
+        pcall(vim.treesitter.start) -- fails for Telescope etc.
     end,
 })
 
