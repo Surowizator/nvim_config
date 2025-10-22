@@ -360,6 +360,11 @@ snippet mrm "mathrm" iA
 endsnippet
 
 context "math()"
+snippet mop "niceop" iA
+\niceop{$1}$0
+endsnippet
+
+context "math()"
 snippet lll "l" iA
 \ell
 endsnippet
@@ -392,7 +397,7 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|exp|star|perp)' "ln" rwA
+snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|exp|star|perp|det|dim|ins|charr)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
